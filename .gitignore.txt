@@ -1,9 +1,0 @@
-
-/target/
-
-
-*.log
-
-
-*.swp
-.idea/
