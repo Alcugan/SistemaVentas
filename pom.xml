@@ -21,7 +21,20 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>com.mycompany.sistemaventas.SistemaVentas</exec.mainClass>
     </properties>
+    <profiles>
+        <profile>
+            <id>jdk23</id>
+            <properties>
+                <maven.compiler.release>23</maven.compiler.release>
+            </properties>
+        </profile>
+        <profile>
+            <id>jdk18</id>
+            <properties>
+                <maven.compiler.release>18</maven.compiler.release>
+            </properties>
+        </profile>
+    </profiles>
 </project>
