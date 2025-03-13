@@ -1,49 +1,8 @@
-# NetBeans specific
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
+/target/
 
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
 
-# Maven specific (si usas Maven)
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-
-# Logs
 *.log
-logs/
 
-# Sistema operativo
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 
-# Otros archivos y carpetas específicos de NetBeans
-.nb-gradle/
-
-# Configuraciones de IDE
+*.swp
 .idea/
-*.iml
-*.iws
-.settings/
-.classpath
-.project
-
-# Archivos temporales
-*~
