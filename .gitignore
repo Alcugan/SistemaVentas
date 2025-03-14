@@ -1,1 +1,8 @@
 /target/
+
+
+*.log
+
+
+*.swp
+.idea/
