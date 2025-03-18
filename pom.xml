@@ -5,35 +5,37 @@
     <artifactId>SistemaVentas</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
     <dependencies>
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE230</version>
         </dependency>
-        
-        <!-- Dependencia de MySQL Connector -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.28</version>
         </dependency>
     </dependencies>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <exec.mainClass>com.mycompany.sistemaventas.SistemaVentas</exec.mainClass>
     </properties>
+    
     <profiles>
         <profile>
             <id>jdk23</id>
             <properties>
-                <maven.compiler.release>23</maven.compiler.release>
+                <maven.compiler.release>23</maven.compiler.release> 
             </properties>
         </profile>
+        
         <profile>
             <id>jdk18</id>
             <properties>
-                <maven.compiler.release>18</maven.compiler.release>
+                <maven.compiler.release>8</maven.compiler.release>  
             </properties>
         </profile>
     </profiles>
