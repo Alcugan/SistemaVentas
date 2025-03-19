@@ -840,14 +840,14 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="txtRazonProveedor" min="-2" pref="121" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnEliminarProveedor" max="32767" attributes="0"/>
-                                  <Component id="btnEditarProveedor" pref="70" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnEliminarProveedor" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="btnGuardarProveedor" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="41" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnGuardarProveedor" pref="53" max="32767" attributes="0"/>
+                              <EmptySpace min="66" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnEditarProveedor" pref="59" max="32767" attributes="0"/>
                                   <Component id="btnNuevoProveedor" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
@@ -894,12 +894,12 @@
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtRazonProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnEditarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnGuardarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnEditarProveedor" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnGuardarProveedor" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnNuevoProveedor" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnEliminarProveedor" min="-2" max="-2" attributes="0"/>
@@ -974,7 +974,7 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
-                        <Column editable="true" title="RUC" type="java.lang.Object"/>
+                        <Column editable="true" title="DNI" type="java.lang.Object"/>
                         <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
                         <Column editable="true" title="TEL&#xc9;FONO" type="java.lang.Object"/>
                         <Column editable="true" title="DIRECCI&#xd3;N" type="java.lang.Object"/>
@@ -1044,6 +1044,9 @@
                   <Image iconType="3" name="/Imagenes/GuardarTodo.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarProveedorActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdPorveedor">
             </Component>

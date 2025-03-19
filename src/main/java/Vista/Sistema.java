@@ -6,6 +6,8 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.ClienteDAO;
+import Modelo.Proveedor;
+import Modelo.ProveedorDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +20,8 @@ public class Sistema extends javax.swing.JFrame {
 
     Cliente cl = new Cliente();
    ClienteDAO client = new ClienteDAO();
+   Proveedor pr = new Proveedor();
+   ProveedorDAO PrDao = new ProveedorDAO();
     DefaultTableModel modelo = new DefaultTableModel();
     
     public Sistema() {
@@ -607,7 +611,7 @@ public class Sistema extends javax.swing.JFrame {
 
             },
             new String [] {
-                "RUC", "NOMBRE", "TELÉFONO", "DIRECCIÓN", "RAZÓN SOCIAL"
+                "DNI", "NOMBRE", "TELÉFONO", "DIRECCIÓN", "RAZÓN SOCIAL"
             }
         ));
         jScrollPane1.setViewportView(TableProveedor);
@@ -625,6 +629,11 @@ public class Sistema extends javax.swing.JFrame {
         btnNuevoProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nuevo.png"))); // NOI18N
 
         btnGuardarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GuardarTodo.png"))); // NOI18N
+        btnGuardarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarProveedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -653,13 +662,13 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtRazonProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnEliminarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGuardarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGuardarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnEditarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                             .addComponent(btnNuevoProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
@@ -695,11 +704,11 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(txtRazonProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnEditarProveedor)
                             .addComponent(btnGuardarProveedor))
-                        .addGap(31, 31, 31)
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnNuevoProveedor)
                             .addComponent(btnEliminarProveedor)))
@@ -1106,6 +1115,23 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         LimpiarCliente();
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
+
+    private void btnGuardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProveedorActionPerformed
+        // TODO add your handling code here:
+        if (!"".equals(txtDniProveedor.getText()) ||  !"".equals(txtNomberProveedor.getText()) || !"".equals(txtTelefonoProveedor.getText()) || !"".equals(txtDireccionProveedor.getText()) || !"".equals(txtRazonProveedor.getText())) {
+          pr.setDni(txtDniProveedor.getText());
+          pr.setNombre(txtNomberProveedor.getText());
+          pr.setTelefono(Integer.parseInt(txtTelefonoProveedor.getText()));
+          pr.setDireccion(txtDireccionProveedor.getText());
+          pr.setRazon(txtRazonProveedor.getText());
+          PrDao.RegistrarProveedor(pr);
+          
+        }else{
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        }
+        
+        
+    }//GEN-LAST:event_btnGuardarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
