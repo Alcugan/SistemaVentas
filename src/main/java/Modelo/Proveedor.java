@@ -3,19 +3,18 @@ package Modelo;
 
 public class Proveedor {
     private int id;
-    private String dni;
+    private String nif;
     private String nombre;
     private int telefono;
     private String direccion;
     private String razon;
-    
-    public Proveedor(){
-        
+
+    public Proveedor() {
     }
 
-    public Proveedor(int id, String dni, String nombre, int telefono, String direccion, String razon) {
+    public Proveedor(int id, String nif, String nombre, int telefono, String direccion, String razon) {
         this.id = id;
-        this.dni = dni;
+        this.nif = nif;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -30,12 +29,12 @@ public class Proveedor {
         this.id = id;
     }
 
-    public String getDni() {
-        return dni;
+    public String getNif() {
+        return nif;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 
     public String getNombre() {
