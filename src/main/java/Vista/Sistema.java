@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+import Reportes.Excel;
 import Modelo.Cliente;
 import Modelo.ClienteDAO;
 import Modelo.Productos;
@@ -892,6 +892,11 @@ public class Sistema extends javax.swing.JFrame {
         });
 
         btnExcelPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/excel.png"))); // NOI18N
+        btnExcelPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcelProActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1154,18 +1159,18 @@ public class Sistema extends javax.swing.JFrame {
         if ("".equals(txtIdPro.getText())) {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
         } else {
-            if(!"".equals(txtNifProveedor.getText()) || !"".equals(txtNombreProveedor.getText()) || !"".equals(txtTelefonoProveedor.getText()) || !"".equals(txtDireccionProveedor.getText()) || !"".equals(txtRazonProveedor.getText())){
-                pr.setNif(txtNifProveedor.getText());
-                pr.setNombre(txtNombreProveedor.getText());
-                pr.setTelefono(Integer.parseInt(txtTelefonoProveedor.getText()));
-                pr.setDireccion(txtDireccionProveedor.getText());
-                pr.setRazon(txtRazonProveedor.getText());
-                pr.setId(Integer.parseInt(txtIdProveedor.getText()));
-                PrDao.ModificarProveedor(pr);
-                 JOptionPane.showMessageDialog(null, "Proveedor modificado");
+            if(!"".equals(txtCodPro.getText()) || !"".equals(txtDescPro.getText()) || !"".equals(txtCantPro.getText()) || !"".equals(txtPrePro.getText())){
+                pro.setCodigo(txtCodPro.getText());
+                pro.setNombre(txtDescPro.getText());
+                pro.setProveedor(cbxProveedorPro.getSelectedItem().toString());
+                pro.setStock(Integer.parseInt(txtCantPro.getText()));
+                pro.setPrecio(Double.parseDouble(txtPrePro.getText()));
+                pro.setId(Integer.parseInt(txtIdPro.getText()));
+                proDao.ModificarProductos(pro);
+                 JOptionPane.showMessageDialog(null, "Producto modificado");
                 LimpiarTable();
-                ListarProveedor();
-                LimpiarProveedor();
+                ListarProductos();
+                LimpiarProductos();
                 
             }
         }
@@ -1384,6 +1389,11 @@ public class Sistema extends javax.swing.JFrame {
     private void cbxProveedorProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProveedorProActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxProveedorProActionPerformed
+
+    private void btnExcelProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelProActionPerformed
+        // TODO add your handling code here:
+        Excel.reporte();
+    }//GEN-LAST:event_btnExcelProActionPerformed
 
     /**
      * @param args the command line arguments
