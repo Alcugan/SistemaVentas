@@ -92,7 +92,8 @@ public class ProductosDAO {
                 System.out.println(ex.toString());
             }
         }
-    }  
+
+     }
      
      public boolean ModificarProductos(Productos pro){
         String sql = "UPDATE productos SET codigo= ?, nombre=?, proveedor=?, stock=?, precio=? WHERE id=?";
@@ -118,6 +119,25 @@ public class ProductosDAO {
             }
         }
     }
-    
      
+     public Productos BuscarPro(String cod){
+         Productos producto = new Productos();
+         String sql = "SELECT * FROM productos WHERE codigo = ?";
+         try {
+             con = cn.getConnection();
+             ps = con.prepareStatement(sql);
+             ps.setString(1, cod);
+             rs = ps.executeQuery();
+             if (rs.next()) {
+                 producto.setNombre(rs.getString("nombre"));
+                 producto.setPrecio(rs.getDouble("precio"));
+                 producto.setStock(rs.getInt("stock"));
+             }
+         } catch (SQLException e) {
+             System.out.println("Error: " + e.toString());
+         }
+         return producto;
+     }
+
+
 }

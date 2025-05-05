@@ -10,6 +10,7 @@ import Modelo.Productos;
 import Modelo.ProductosDAO;
 import Modelo.Proveedor;
 import Modelo.ProveedorDAO;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -321,6 +322,12 @@ public class Sistema extends javax.swing.JFrame {
         jLabel16.setText("Stock Disponible");
 
         btnEliminarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
+
+        txtCódigoVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCódigoVentaKeyPressed(evt);
+            }
+        });
 
         txtPrecioVenta.setEditable(false);
 
@@ -1193,6 +1200,9 @@ public class Sistema extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Los campos estan vacios");
         }
+                LimpiarTable();
+                ListarProductos();
+                LimpiarProductos();
     }//GEN-LAST:event_btnGuardarProActionPerformed
 
     private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
@@ -1394,6 +1404,31 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         Excel.reporte();
     }//GEN-LAST:event_btnExcelProActionPerformed
+
+    private void txtCódigoVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCódigoVentaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (!"".equals(txtCódigoVenta.getText())) {
+                String cod = txtCódigoVenta.getText();
+                pro = proDao.BuscarPro(cod);
+                if (pro.getNombre() != null) {
+                    txtDescripciónVenta.setText(""+pro.getNombre());
+                    txtPrecioVenta.setText(""+pro.getPrecio());
+                    txtStockDisponible.setText(""+pro.getStock());
+                    txtCantidadVenta.requestFocus();                    
+                }else{
+                    txtDescripciónVenta.setText("");
+                    txtPrecioVenta.setText("");
+                    txtStockDisponible.setText("");
+                    txtCódigoVenta.requestFocus();
+                }
+                }else{
+                JOptionPane.showMessageDialog(null, "Ingrese el codigo del producto");
+                txtCantidadVenta.requestFocus();
+                }
+        }
+    }//GEN-LAST:event_txtCódigoVentaKeyPressed
+
 
     /**
      * @param args the command line arguments
