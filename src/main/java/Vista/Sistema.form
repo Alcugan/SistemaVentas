@@ -188,7 +188,7 @@
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel8" min="-2" pref="890" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -196,7 +196,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="568" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -229,14 +229,14 @@
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtPrecioVenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtPrecioVenta" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="txtStockDisponible" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="txtIdPro" min="-2" pref="26" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                                   <Component id="btnEliminarVenta" min="-2" pref="62" max="-2" attributes="0"/>
@@ -302,7 +302,7 @@
                                               <Component id="txtCódigoVenta" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                                   <Component id="txtCantidadVenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtPrecioVenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtPrecioVenta" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                                   <Component id="txtStockDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtIdPro" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -408,11 +408,15 @@
                 <Component class="javax.swing.JTextField" name="txtDescripci&#xf3;nVenta">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCantidadVenta">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCantidadVentaActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCantidadVentaKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtPrecioVenta">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecioVentaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtStockDisponible">
                 </Component>
